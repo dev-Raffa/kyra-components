@@ -1,0 +1,19 @@
+{
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "test": "node ./__tests__/react-library.test.js",
+    "build": "npm run tsc",
+     "tsc": "tsc -p . --outDir ./dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "kyra-components": "*"
+  }
+}

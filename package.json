@@ -1,0 +1,15 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "lerna": "^7.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2"
+  }
+}
