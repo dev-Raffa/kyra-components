@@ -32,8 +32,11 @@
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "react/no-unescaped-entities":"off",
+      "react/no-unknown-property":"off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@stencil-community/strict-boolean-conditions": "off"
+      "@stencil-community/strict-boolean-conditions": "off",
+      "@stencil-community/required-jsdoc": "off",
+      "@stencil-community/element-type":"off"
   },
-  "ignorePatterns": []
+  "ignorePatterns": ["/**/*.png", "**/*.html", "/**/*.css", "/**/*.md"]
 }

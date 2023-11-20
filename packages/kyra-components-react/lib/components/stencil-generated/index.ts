@@ -7,4 +7,5 @@ import type { JSX } from 'kyra-components';
 
 
 
+export const CwCarousel = /*@__PURE__*/createReactComponent<JSX.CwCarousel, HTMLCwCarouselElement>('cw-carousel');
 export const MyComponent = /*@__PURE__*/createReactComponent<JSX.MyComponent, HTMLMyComponentElement>('my-component');

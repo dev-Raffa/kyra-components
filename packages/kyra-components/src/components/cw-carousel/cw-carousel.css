@@ -1,0 +1,87 @@
+cw-carousel {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: all 350ms;
+}
+
+cw-carousel > .groupItems{
+  position: absolute;
+  display: flex;
+  gap: 24px;
+  left: 0;
+  transition: all 350ms;
+}
+
+cw-carousel > .groupItems > * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+cw-carousel > .prevButton {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+cw-carousel > .nextButton {
+  right: 0px;
+}
+
+cw-carousel > .prevButton,
+cw-carousel > .nextButton {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+  background: transparent;
+  transition: all 550ms;
+}
+
+cw-carousel > .prevButton.active,
+cw-carousel > .nextButton.active{
+  visibility: visible;
+}
+
+cw-carousel > .prevButton.active:hover,
+cw-carousel > .nextButton.active:hover{
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgb(0 0 0 / 34%) 70%, rgb(50 48 48 / 85%) 100%);
+}
+
+cw-carousel > .index-section {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+cw-carousel > .index-section > .index {
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+cw-carousel > .index-section > .index.active {
+  opacity: 1;
+}

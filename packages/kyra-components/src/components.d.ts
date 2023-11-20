@@ -6,6 +6,36 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CwCarousel {
+        /**
+          * if this value is true, a button prev element and a button next element will be shown in the sides of carousel
+         */
+        "arrows"?: boolean;
+        /**
+          * if this value is true the elments will be changed automatically in the interval defined
+         */
+        "autoplay"?: boolean;
+        /**
+          * set the colors controls carousel
+         */
+        "colors": string;
+        /**
+          * set the carousel height
+         */
+        "height": string;
+        /**
+          * if this value is true, a section with control indices of elements will be shown at the bottom of the carousel
+         */
+        "index"?: boolean;
+        /**
+          * set the interval for altomatically changing the elements
+         */
+        "time"?: number;
+        /**
+          * set the carousel width
+         */
+        "width": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +52,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
+    }
+    var HTMLCwCarouselElement: {
+        prototype: HTMLCwCarouselElement;
+        new (): HTMLCwCarouselElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +65,41 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "cw-carousel": HTMLCwCarouselElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface CwCarousel {
+        /**
+          * if this value is true, a button prev element and a button next element will be shown in the sides of carousel
+         */
+        "arrows"?: boolean;
+        /**
+          * if this value is true the elments will be changed automatically in the interval defined
+         */
+        "autoplay"?: boolean;
+        /**
+          * set the colors controls carousel
+         */
+        "colors"?: string;
+        /**
+          * set the carousel height
+         */
+        "height"?: string;
+        /**
+          * if this value is true, a section with control indices of elements will be shown at the bottom of the carousel
+         */
+        "index"?: boolean;
+        /**
+          * set the interval for altomatically changing the elements
+         */
+        "time"?: number;
+        /**
+          * set the carousel width
+         */
+        "width"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +115,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "cw-carousel": CwCarousel;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +123,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
