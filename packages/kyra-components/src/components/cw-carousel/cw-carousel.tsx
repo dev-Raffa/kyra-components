@@ -41,10 +41,12 @@ export class Carousel {
     this.resizeObserver = new ResizeObserver(this.handleResize.bind(this));
     this.resizeObserver.observe(this.el);
     this.adjustItems();
-    this.index && this.getSectionIndex();
-    this.indexes = this.el.querySelector(".index-section").children;
     this.arrows && this.getArrows();
-    this.autoplay && this.autoplayActive(5000);
+    this.autoplay && this.autoplayActive(this.time);
+    if (this.index) {
+      this.getSectionIndex();
+      this.indexes = this.el.querySelector(".index-section").children;
+    }
   }
 
   private handleResize() {
@@ -125,19 +127,20 @@ export class Carousel {
       Object.assign(this.groupItems.style, {
         left: this.actualPosisiton + "px",
       });
-      this.el.querySelector(".prevButton").classList.add("active");
-      this.indexes[this.itemInView].classList.remove("active");
+      this.arrows &&
+        this.el.querySelector(".prevButton").classList.add("active");
+      this.index && this.indexes[this.itemInView].classList.remove("active");
       this.itemInView++;
-      this.indexes[this.itemInView].classList.add("active");
+      this.index && this.indexes[this.itemInView].classList.add("active");
     } else if (this.itemInView === this.items.length - 2) {
       this.actualPosisiton = this.el.clientWidth - this.groupItems.clientWidth;
       this.el.querySelector(".nextButton").classList.remove("active");
       Object.assign(this.groupItems.style, {
         left: this.actualPosisiton + "px",
       });
-      this.indexes[this.itemInView].classList.remove("active");
+      this.index && this.indexes[this.itemInView].classList.remove("active");
       this.itemInView++;
-      this.indexes[this.itemInView].classList.add("active");
+      this.index && this.indexes[this.itemInView].classList.add("active");
     }
   }
 
@@ -148,19 +151,19 @@ export class Carousel {
         left: this.actualPosisiton + "px",
       });
       this.el.querySelector(".nextButton").classList.add("active");
-      this.indexes[this.itemInView].classList.remove("active");
+      this.index && this.indexes[this.itemInView].classList.remove("active");
       this.itemInView--;
-      this.indexes[this.itemInView].classList.add("active");
+      this.index && this.indexes[this.itemInView].classList.add("active");
     } else if (this.itemInView - 1 === 0) {
       this.actualPosisiton = 0;
       this.el.querySelector(".prevButton").classList.remove("active");
       Object.assign(this.groupItems.style, {
         left: this.actualPosisiton + "px",
       });
-      this.indexes[this.itemInView].classList.add("active");
-      this.indexes[this.itemInView].classList.remove("active");
+      this.index && this.indexes[this.itemInView].classList.add("active");
+      this.index && this.indexes[this.itemInView].classList.remove("active");
       this.itemInView--;
-      this.indexes[this.itemInView].classList.add("active");
+      this.index && this.indexes[this.itemInView].classList.add("active");
     }
   }
 
@@ -171,8 +174,8 @@ export class Carousel {
 
     this.actualPosisiton = 0 - index * (this.el.clientWidth + 24);
     Object.assign(this.groupItems.style, { left: this.actualPosisiton + "px" });
-    this.indexes[this.itemInView].classList.remove("active");
-    this.indexes[index].classList.add("active");
+    this.index && this.indexes[this.itemInView].classList.remove("active");
+    this.index && this.indexes[index].classList.add("active");
     this.itemInView = index;
     index > 0 && this.el.querySelector(".prevButton").classList.add("active");
     index === 0 &&
@@ -182,6 +185,7 @@ export class Carousel {
     index === this.items.length - 1 &&
       this.el.querySelector(".nextButton").classList.remove("active");
   }
+
   private autoplayActive(time: number) {
     setInterval(() => {
       if (this.itemInView < this.items.length - 1) {
@@ -191,6 +195,7 @@ export class Carousel {
       }
     }, time);
   }
+
   render() {
     return (
       <>
