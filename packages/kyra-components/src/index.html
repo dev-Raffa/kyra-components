@@ -9,11 +9,22 @@
     <script nomodule src="/build/kyra-components.js"></script>
   </head>
   <body>
-    <cw-carousel width="100%" height="450px" arrows autoplay>
-      <div><img src="assets/images/Rectangle 1.png" alt=""></div>
-      <div><img src="assets/images/Rectangle 1 (1).png" alt=""></div>
-      <div><img src="assets/images/Rectangle 1 (2).png" alt=""></div>
-
-    </cw-carousel>
+    <div style="display: flex; gap: 24px;">
+      <cw-draggable item-title="Board A">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1.png" alt="">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1 (1).png" alt="">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1 (2).png" alt="">
+      </cw-draggable>
+      <cw-draggable item-title="Board B">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1.png" alt="">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1 (1).png" alt="">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1 (2).png" alt="">
+      </cw-draggable>
+      <cw-draggable item-title="Board C">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1.png" alt="">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1 (1).png" alt="">
+        <img style="width: 200px; height: 50px;" src="assets/images/Rectangle 1 (2).png" alt="">
+      </cw-draggable>
+    </div>
   </body>
 </html>

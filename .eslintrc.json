@@ -38,5 +38,5 @@
       "@stencil-community/required-jsdoc": "off",
       "@stencil-community/element-type":"off"
   },
-  "ignorePatterns": ["/**/*.png", "**/*.html", "/**/*.css", "/**/*.md"]
+  "ignorePatterns": ["/**/*.png", "**/*.html", "/**/*.css", "/**/*.md", "/**/*.svg"]
 }

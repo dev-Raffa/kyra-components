@@ -36,6 +36,19 @@ export namespace Components {
          */
         "width": string;
     }
+    interface CwDraggable {
+        "bgColor": string;
+        "border": string;
+        "gap": string;
+        "height": string;
+        "itemTitle": string;
+        "itemsDirection": string;
+        "transition": string;
+        "width": string;
+    }
+    interface CwDraggableBoard {
+        "itemTitle": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -58,6 +71,18 @@ declare global {
         prototype: HTMLCwCarouselElement;
         new (): HTMLCwCarouselElement;
     };
+    interface HTMLCwDraggableElement extends Components.CwDraggable, HTMLStencilElement {
+    }
+    var HTMLCwDraggableElement: {
+        prototype: HTMLCwDraggableElement;
+        new (): HTMLCwDraggableElement;
+    };
+    interface HTMLCwDraggableBoardElement extends Components.CwDraggableBoard, HTMLStencilElement {
+    }
+    var HTMLCwDraggableBoardElement: {
+        prototype: HTMLCwDraggableBoardElement;
+        new (): HTMLCwDraggableBoardElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -66,6 +91,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "cw-carousel": HTMLCwCarouselElement;
+        "cw-draggable": HTMLCwDraggableElement;
+        "cw-draggable-board": HTMLCwDraggableBoardElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -100,6 +127,19 @@ declare namespace LocalJSX {
          */
         "width"?: string;
     }
+    interface CwDraggable {
+        "bgColor"?: string;
+        "border"?: string;
+        "gap"?: string;
+        "height"?: string;
+        "itemTitle"?: string;
+        "itemsDirection"?: string;
+        "transition"?: string;
+        "width"?: string;
+    }
+    interface CwDraggableBoard {
+        "itemTitle"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -116,6 +156,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "cw-carousel": CwCarousel;
+        "cw-draggable": CwDraggable;
+        "cw-draggable-board": CwDraggableBoard;
         "my-component": MyComponent;
     }
 }
@@ -124,6 +166,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
+            "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
+            "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
