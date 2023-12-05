@@ -30,7 +30,9 @@ export class Carousel {
   private resizeObserver: ResizeObserver;
 
   componentWillLoad() {
-    Object.assign(this.el.style, { width: this.width, height: this.height });
+    this.el.style.setProperty("--colors", this.colors);
+    this.el.style.setProperty("--width", this.width);
+    this.el.style.setProperty("--height", this.height)
     this.itemInView = 0;
   }
 
@@ -43,25 +45,25 @@ export class Carousel {
     this.adjustItems();
     this.arrows && this.getArrows();
     this.autoplay && this.autoplayActive(this.time);
-    if (this.index) {
-      this.getSectionIndex();
-      this.indexes = this.el.querySelector(".index-section").children;
-    }
+    this.index && this.getSectionIndex();
   }
 
   private handleResize() {
     this.adjustItems();
-    const item = this.items[this.itemInView];
-    item.scrollIntoView(true);
+    this.actualPosisiton = (this.itemInView * this.el.clientWidth + this.itemInView * 24) * -1
+    
+    Object.assign(this.groupItems.style, {
+      left: this.actualPosisiton + "px",
+    });
+    
+    
   }
 
   private adjustItems() {
     for (let i = 0; i < this.items.length; i++) {
       const item = this.items[i];
-      item.setAttribute(
-        "style",
-        `width: ${this.el.clientWidth}px; overflow: hidden; display: flex; align-items: center; justify-content: center;`,
-      );
+      this.el.style.setProperty("--client-width", this.el.clientWidth + "px");
+      item.classList.add("item");
     }
   }
 
@@ -69,33 +71,24 @@ export class Carousel {
     const indexSection = document.createElement("section");
     indexSection.setAttribute("class", "index-section");
 
-    if (this.index) {
-      for (let i = 0; i < this.items.length; i++) {
-        const index = document.createElement("button");
-        index.setAttribute(
-          "class",
-          `index ${this.itemInView == i ? "active" : ""}`,
-        );
-        index.addEventListener("click", () => {
-          this.selectItem(i);
-        });
+    for (let i = 0; i < this.items.length; i++) {
+      const index = document.createElement("button");
+      index.setAttribute(
+        "class",
+        `index ${this.itemInView == i ? "active" : ""}`,
+      );
+      index.addEventListener("click", () => {
+        this.selectItem(i);
+      });
 
-        Object.assign(index.style, {
-          backgroundColor: this.colors ? this.colors : "white",
-        });
-        indexSection.appendChild(index);
-      }
-
-      this.el.appendChild(indexSection);
+      indexSection.appendChild(index);
     }
+    this.el.appendChild(indexSection);
+    this.indexes = this.el.querySelector(".index-section").children
   }
 
   private getArrows() {
-    const styles = {
-      height: this.height,
-      color: this.colors ? this.colors : "white",
-    };
-
+    
     if (this.items.length > 1) {
       const prevArrow = document.createElement("button");
       prevArrow.onclick = this.prevItem.bind(this);
@@ -104,7 +97,7 @@ export class Carousel {
         `prevButton${this.itemInView > 0 ? " active" : ""}`,
       );
       prevArrow.innerHTML = Arrow;
-      Object.assign(prevArrow.style, styles);
+      
 
       this.el.appendChild(prevArrow);
 
@@ -115,8 +108,6 @@ export class Carousel {
       );
       nextArrow.onclick = this.nextItem.bind(this);
       nextArrow.innerHTML = Arrow;
-      Object.assign(nextArrow.style, styles);
-
       this.el.appendChild(nextArrow);
     }
   }
@@ -177,13 +168,16 @@ export class Carousel {
     this.index && this.indexes[this.itemInView].classList.remove("active");
     this.index && this.indexes[index].classList.add("active");
     this.itemInView = index;
-    index > 0 && this.el.querySelector(".prevButton").classList.add("active");
+    if(this.arrows){
+      
+      index > 0 && this.el.querySelector(".prevButton").classList.add("active");
     index === 0 &&
       this.el.querySelector(".prevButton").classList.remove("active");
     index < this.items.length - 1 &&
       this.el.querySelector(".nextButton").classList.add("active");
     index === this.items.length - 1 &&
       this.el.querySelector(".nextButton").classList.remove("active");
+    }
   }
 
   private autoplayActive(time: number) {

@@ -1,4 +1,11 @@
 cw-carousel {
+  --colors: whit;
+  --width: 100%;
+  --height: fit-content;
+  --client-width:100%;
+  
+  width:var(--width);
+  height:var(--height);
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -14,7 +21,7 @@ cw-carousel > .groupItems{
   display: flex;
   gap: 24px;
   left: 0;
-  transition: all 350ms;
+  transition: left 350ms;
 }
 
 cw-carousel > .groupItems > * {
@@ -23,13 +30,15 @@ cw-carousel > .groupItems > * {
   box-sizing: border-box;
 }
 
-cw-carousel > .prevButton {
-  left: 0;
-  transform: rotate(180deg);
-}
-
-cw-carousel > .nextButton {
-  right: 0px;
+cw-carousel > .groupItems > .item {
+  width:var(--width);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;;
 }
 
 cw-carousel > .prevButton,
@@ -38,16 +47,18 @@ cw-carousel > .nextButton {
   border: none;
   padding: 0;
   margin: 0;
+  width: 48px;
+  height: var(--height);
   visibility: hidden;
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
   z-index: 2;
   backdrop-filter: blur(2px);
   background: transparent;
   transition: all 550ms;
+  color:var(--colors);
 }
 
 cw-carousel > .prevButton.active,
@@ -59,6 +70,16 @@ cw-carousel > .prevButton.active:hover,
 cw-carousel > .nextButton.active:hover{
   background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgb(0 0 0 / 34%) 70%, rgb(50 48 48 / 85%) 100%);
 }
+
+cw-carousel > .prevButton {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+cw-carousel > .nextButton {
+  right: 0px;
+}
+
 
 cw-carousel > .index-section {
   position: absolute;
@@ -80,6 +101,7 @@ cw-carousel > .index-section > .index {
   height: 20px;
   border-radius: 50%;
   opacity: 0.5;
+  background-color:var(--colors);
 }
 
 cw-carousel > .index-section > .index.active {
