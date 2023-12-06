@@ -3,6 +3,7 @@ import { Component, Host, h, Prop, Element } from "@stencil/core";
 @Component({
   tag: "cw-draggable-board",
   styleUrl: "../../cw-draggable.css",
+  assetsDirs: ["../../assets"],
 })
 export class CwDraggableBoard {
   @Element() el: HTMLElement;
@@ -108,12 +109,14 @@ export class CwDraggableBoard {
 
     const items = e.target.querySelectorAll(".item-draggable:not(.dragging)");
     let applyAfter: Element;
+    
 
     items.forEach((item) => {
       const box = item.getBoundingClientRect();
-      const boxCenter = box.top + box.height / 2;
-
+      const boxCenter = box.top + box.height /2;
+      
       if (e.clientY >= boxCenter) applyAfter = item;
+      
     });
 
     applyAfter && applyAfter.insertAdjacentElement("afterend", itemDragging);
@@ -148,8 +151,9 @@ export class CwDraggableBoard {
   private dragLeaveOnTrashHandle(e) {
     const itemDragging = document.querySelector(".dragging");
     const trashArea = document.querySelector(".trashArea.visible");
+    const box = trashArea.getBoundingClientRect();
 
-    if (e.clientY <= 280) return;
+    if (e.clientY >= box.top && e.clientY <= (box.bottom-20)) return;
     itemDragging.removeAttribute("isInTrash");
 
     const cloneItemDragging = document.querySelector("[isInTrash='true']");
@@ -168,12 +172,12 @@ export class CwDraggableBoard {
         <footer ref={(el) => (this.trashArea = el)} class="trashArea">
           <img
             class="closed visible"
-            src="../assets/trash-closed.svg"
+            src="/trash-closed.svg"
             alt="trash closed"
           />
           <img
             class="opened"
-            src="../assets/trash-opened.svg"
+            src="/trash-opened.svg"
             alt="trash opened"
           />
         </footer>

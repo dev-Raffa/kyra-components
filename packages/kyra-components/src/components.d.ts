@@ -49,20 +49,6 @@ export namespace Components {
     interface CwDraggableBoard {
         "itemTitle": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
     interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
@@ -83,17 +69,10 @@ declare global {
         prototype: HTMLCwDraggableBoardElement;
         new (): HTMLCwDraggableBoardElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "cw-carousel": HTMLCwCarouselElement;
         "cw-draggable": HTMLCwDraggableElement;
         "cw-draggable-board": HTMLCwDraggableBoardElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -140,25 +119,10 @@ declare namespace LocalJSX {
     interface CwDraggableBoard {
         "itemTitle"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "cw-carousel": CwCarousel;
         "cw-draggable": CwDraggable;
         "cw-draggable-board": CwDraggableBoard;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -168,7 +132,6 @@ declare module "@stencil/core" {
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
             "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
             "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
