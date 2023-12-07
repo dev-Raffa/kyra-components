@@ -49,6 +49,15 @@ export namespace Components {
     interface CwDraggableBoard {
         "itemTitle": string;
     }
+    interface CwModal {
+        "alignment": 'top' | 'center' | 'bottom';
+        "bgColor": string;
+        "borderColor": string;
+        "fontColor": string;
+        "modalTitle": string;
+        "show": boolean;
+        "width": string;
+    }
 }
 declare global {
     interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
@@ -69,10 +78,17 @@ declare global {
         prototype: HTMLCwDraggableBoardElement;
         new (): HTMLCwDraggableBoardElement;
     };
+    interface HTMLCwModalElement extends Components.CwModal, HTMLStencilElement {
+    }
+    var HTMLCwModalElement: {
+        prototype: HTMLCwModalElement;
+        new (): HTMLCwModalElement;
+    };
     interface HTMLElementTagNameMap {
         "cw-carousel": HTMLCwCarouselElement;
         "cw-draggable": HTMLCwDraggableElement;
         "cw-draggable-board": HTMLCwDraggableBoardElement;
+        "cw-modal": HTMLCwModalElement;
     }
 }
 declare namespace LocalJSX {
@@ -119,10 +135,20 @@ declare namespace LocalJSX {
     interface CwDraggableBoard {
         "itemTitle"?: string;
     }
+    interface CwModal {
+        "alignment"?: 'top' | 'center' | 'bottom';
+        "bgColor"?: string;
+        "borderColor"?: string;
+        "fontColor"?: string;
+        "modalTitle"?: string;
+        "show"?: boolean;
+        "width"?: string;
+    }
     interface IntrinsicElements {
         "cw-carousel": CwCarousel;
         "cw-draggable": CwDraggable;
         "cw-draggable-board": CwDraggableBoard;
+        "cw-modal": CwModal;
     }
 }
 export { LocalJSX as JSX };
@@ -132,6 +158,7 @@ declare module "@stencil/core" {
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
             "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
             "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
+            "cw-modal": LocalJSX.CwModal & JSXBase.HTMLAttributes<HTMLCwModalElement>;
         }
     }
 }
