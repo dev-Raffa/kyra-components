@@ -7,15 +7,17 @@ cw-draggable {
   --flex-direction: column;
   --border:1px solid rgba(0,0,0,.2);
   --transition: all .7s ease-in-out;
+  height: var(--height);
+  width: var(--width);
+  background-color: var(--bg-color);
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 4px;
-  gap: 8px;
+  gap: 12px;
   border: var(--border);
   transition: var(--transition);
   box-shadow: 0px 0px 1px 0px;
-  height: var(--height);
 }
 
 cw-draggable > *,
@@ -37,21 +39,18 @@ cw-draggable > header {
 
 cw-draggable > .board {
   display: flex;
+  align-items:center;
   flex-direction: column;
 }
 cw-draggable > .board > .dropArea {
   display:flex;
+  position: relative;
+  padding: 8px;
+  gap: var(--gap);
   flex-direction:var(--flex-direction);
   transition: var(--transition);
   width: var(--width);
-  background-color: black;
   height: var(--height);
-}
-
-cw-draggable > .board > .dropArea {
-  position: relative;
-  padding: 0 8px;
-  gap: var(--gap);
 }
 
 cw-draggable > .board > .dropArea::before {
@@ -106,7 +105,7 @@ cw-draggable > .board > .trashArea > .closed {
   margin: auto;
   height: 40px;
   width: 100%;
-  z-index: -1;
+  z-index: 2;
 }
 
 cw-draggable > .board > .trashArea.visible > .visible {

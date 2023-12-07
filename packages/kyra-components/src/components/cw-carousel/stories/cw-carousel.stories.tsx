@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/html';
 import { cwCarouselArgs } from "../types/cw-carousel.args";
 
-const Component: Meta<cwCarouselArgs> = {
+const cwCarousel: Meta<cwCarouselArgs> = {
   title: 'Carousel',
 }
 
-export default Component;
+export default cwCarousel;
 
 type Story = StoryObj<cwCarouselArgs>
 

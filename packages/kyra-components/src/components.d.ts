@@ -49,7 +49,6 @@ export namespace Components {
     interface CwDraggableBoard {
         "itemTitle": string;
     }
-
 }
 declare global {
     interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
