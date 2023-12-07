@@ -1,0 +1,7 @@
+:host {
+  --width: 50%;
+  --bg-color: #fff;
+  --alignmet: center;
+  
+  display: block;
+}

@@ -49,19 +49,10 @@ export namespace Components {
     interface CwDraggableBoard {
         "itemTitle": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface CwModal {
+        "alignment": 'top'| 'center' | 'bottom';
+        "bgColor": string;
+        "width": string;
     }
 }
 declare global {
@@ -83,17 +74,17 @@ declare global {
         prototype: HTMLCwDraggableBoardElement;
         new (): HTMLCwDraggableBoardElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLCwModalElement extends Components.CwModal, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLCwModalElement: {
+        prototype: HTMLCwModalElement;
+        new (): HTMLCwModalElement;
     };
     interface HTMLElementTagNameMap {
         "cw-carousel": HTMLCwCarouselElement;
         "cw-draggable": HTMLCwDraggableElement;
         "cw-draggable-board": HTMLCwDraggableBoardElement;
-        "my-component": HTMLMyComponentElement;
+        "cw-modal": HTMLCwModalElement;
     }
 }
 declare namespace LocalJSX {
@@ -140,25 +131,16 @@ declare namespace LocalJSX {
     interface CwDraggableBoard {
         "itemTitle"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface CwModal {
+        "alignment"?: 'top'| 'center' | 'bottom';
+        "bgColor"?: string;
+        "width"?: string;
     }
     interface IntrinsicElements {
         "cw-carousel": CwCarousel;
         "cw-draggable": CwDraggable;
         "cw-draggable-board": CwDraggableBoard;
-        "my-component": MyComponent;
+        "cw-modal": CwModal;
     }
 }
 export { LocalJSX as JSX };
@@ -168,7 +150,7 @@ declare module "@stencil/core" {
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
             "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
             "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "cw-modal": LocalJSX.CwModal & JSXBase.HTMLAttributes<HTMLCwModalElement>;
         }
     }
 }
