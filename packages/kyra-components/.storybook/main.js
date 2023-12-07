@@ -11,7 +11,7 @@ function getAbsolutePath(value) {
 /** @type { import('@storybook/html-webpack5').StorybookConfig } */
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  staticDirs:["../public"],
+  staticDirs:["../public", "../src/assets"],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
