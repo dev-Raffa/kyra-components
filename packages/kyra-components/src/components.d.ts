@@ -36,6 +36,10 @@ export namespace Components {
          */
         "width": string;
     }
+    interface CwCollapse {
+        "header": string;
+        "margin": string;
+    }
     interface CwDraggable {
         "bgColor": string;
         "border": string;
@@ -69,6 +73,10 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface CwCollapseCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCwCollapseElement;
+}
 export interface CwPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLCwPopoverElement;
@@ -79,6 +87,23 @@ declare global {
     var HTMLCwCarouselElement: {
         prototype: HTMLCwCarouselElement;
         new (): HTMLCwCarouselElement;
+    };
+    interface HTMLCwCollapseElementEventMap {
+        "cwCollapseToggled": boolean;
+    }
+    interface HTMLCwCollapseElement extends Components.CwCollapse, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLCwCollapseElementEventMap>(type: K, listener: (this: HTMLCwCollapseElement, ev: CwCollapseCustomEvent<HTMLCwCollapseElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLCwCollapseElementEventMap>(type: K, listener: (this: HTMLCwCollapseElement, ev: CwCollapseCustomEvent<HTMLCwCollapseElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLCwCollapseElement: {
+        prototype: HTMLCwCollapseElement;
+        new (): HTMLCwCollapseElement;
     };
     interface HTMLCwDraggableElement extends Components.CwDraggable, HTMLStencilElement {
     }
@@ -118,6 +143,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "cw-carousel": HTMLCwCarouselElement;
+        "cw-collapse": HTMLCwCollapseElement;
         "cw-draggable": HTMLCwDraggableElement;
         "cw-draggable-board": HTMLCwDraggableBoardElement;
         "cw-popover": HTMLCwPopoverElement;
@@ -155,6 +181,11 @@ declare namespace LocalJSX {
          */
         "width"?: string;
     }
+    interface CwCollapse {
+        "header"?: string;
+        "margin"?: string;
+        "onCwCollapseToggled"?: (event: CwCollapseCustomEvent<boolean>) => void;
+    }
     interface CwDraggable {
         "bgColor"?: string;
         "border"?: string;
@@ -191,6 +222,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "cw-carousel": CwCarousel;
+        "cw-collapse": CwCollapse;
         "cw-draggable": CwDraggable;
         "cw-draggable-board": CwDraggableBoard;
         "cw-popover": CwPopover;
@@ -202,6 +234,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
+            "cw-collapse": LocalJSX.CwCollapse & JSXBase.HTMLAttributes<HTMLCwCollapseElement>;
             "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
             "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
             "cw-popover": LocalJSX.CwPopover & JSXBase.HTMLAttributes<HTMLCwPopoverElement>;
