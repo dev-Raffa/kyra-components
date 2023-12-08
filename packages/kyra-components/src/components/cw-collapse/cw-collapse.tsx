@@ -9,8 +9,7 @@ export class CwCollapse {
   @State() isCollapsed = false;
 
   @Prop() header: string;
-  @Prop() margin: string = '10px'; // Adicionando uma propriedade de margem com um valor padrão
-
+  @Prop() margin: string = '10px';
   @Event() cwCollapseToggled: EventEmitter<boolean>;
 
   toggleCollapse() {

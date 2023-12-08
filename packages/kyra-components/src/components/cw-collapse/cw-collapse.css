@@ -22,7 +22,7 @@
 .collapse-content {
   overflow: hidden;
   transition: max-height 0.3s ease-out, margin 0.3s ease-out;
-  max-height: 1000px; /* um valor grande para garantir que seja maior que o conteúdo real */
+  max-height: 1000px;
   margin-top: 0;
   margin-bottom: 0;
 }
