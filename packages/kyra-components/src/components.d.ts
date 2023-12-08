@@ -49,6 +49,11 @@ export namespace Components {
     interface CwDraggableBoard {
         "itemTitle": string;
     }
+    interface CwPopover {
+        "content": string;
+        "margin": string;
+        "title": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -63,6 +68,10 @@ export namespace Components {
          */
         "middle": string;
     }
+}
+export interface CwPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCwPopoverElement;
 }
 declare global {
     interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
@@ -83,6 +92,24 @@ declare global {
         prototype: HTMLCwDraggableBoardElement;
         new (): HTMLCwDraggableBoardElement;
     };
+    interface HTMLCwPopoverElementEventMap {
+        "cwPopoverShown": void;
+        "cwPopoverHidden": void;
+    }
+    interface HTMLCwPopoverElement extends Components.CwPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLCwPopoverElementEventMap>(type: K, listener: (this: HTMLCwPopoverElement, ev: CwPopoverCustomEvent<HTMLCwPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLCwPopoverElementEventMap>(type: K, listener: (this: HTMLCwPopoverElement, ev: CwPopoverCustomEvent<HTMLCwPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLCwPopoverElement: {
+        prototype: HTMLCwPopoverElement;
+        new (): HTMLCwPopoverElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -93,6 +120,7 @@ declare global {
         "cw-carousel": HTMLCwCarouselElement;
         "cw-draggable": HTMLCwDraggableElement;
         "cw-draggable-board": HTMLCwDraggableBoardElement;
+        "cw-popover": HTMLCwPopoverElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -140,6 +168,13 @@ declare namespace LocalJSX {
     interface CwDraggableBoard {
         "itemTitle"?: string;
     }
+    interface CwPopover {
+        "content"?: string;
+        "margin"?: string;
+        "onCwPopoverHidden"?: (event: CwPopoverCustomEvent<void>) => void;
+        "onCwPopoverShown"?: (event: CwPopoverCustomEvent<void>) => void;
+        "title"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -158,6 +193,7 @@ declare namespace LocalJSX {
         "cw-carousel": CwCarousel;
         "cw-draggable": CwDraggable;
         "cw-draggable-board": CwDraggableBoard;
+        "cw-popover": CwPopover;
         "my-component": MyComponent;
     }
 }
@@ -168,6 +204,7 @@ declare module "@stencil/core" {
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
             "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
             "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
+            "cw-popover": LocalJSX.CwPopover & JSXBase.HTMLAttributes<HTMLCwPopoverElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
