@@ -12,3 +12,4 @@ export const CwDraggable = /*@__PURE__*/createReactComponent<JSX.CwDraggable, HT
 export const CwDraggableBoard = /*@__PURE__*/createReactComponent<JSX.CwDraggableBoard, HTMLCwDraggableBoardElement>('cw-draggable-board');
 export const CwDropdown = /*@__PURE__*/createReactComponent<JSX.CwDropdown, HTMLCwDropdownElement>('cw-dropdown');
 export const CwModal = /*@__PURE__*/createReactComponent<JSX.CwModal, HTMLCwModalElement>('cw-modal');
+export const CwStarsRate = /*@__PURE__*/createReactComponent<JSX.CwStarsRate, HTMLCwStarsRateElement>('cw-stars-rate');
