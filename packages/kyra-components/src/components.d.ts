@@ -72,6 +72,13 @@ export namespace Components {
         "starSelectedColor": string;
         "starUnselectedColor": string;
     }
+    interface CwSwitch {
+        "ballColorSelected": string;
+        "ballColorUnselected": string;
+        "bgColorSelected": string;
+        "bgColorUnselected": string;
+        "borderColor": string;
+    }
 }
 declare global {
     interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
@@ -110,6 +117,12 @@ declare global {
         prototype: HTMLCwStarsRateElement;
         new (): HTMLCwStarsRateElement;
     };
+    interface HTMLCwSwitchElement extends Components.CwSwitch, HTMLStencilElement {
+    }
+    var HTMLCwSwitchElement: {
+        prototype: HTMLCwSwitchElement;
+        new (): HTMLCwSwitchElement;
+    };
     interface HTMLElementTagNameMap {
         "cw-carousel": HTMLCwCarouselElement;
         "cw-draggable": HTMLCwDraggableElement;
@@ -117,6 +130,7 @@ declare global {
         "cw-dropdown": HTMLCwDropdownElement;
         "cw-modal": HTMLCwModalElement;
         "cw-stars-rate": HTMLCwStarsRateElement;
+        "cw-switch": HTMLCwSwitchElement;
     }
 }
 declare namespace LocalJSX {
@@ -186,6 +200,13 @@ declare namespace LocalJSX {
         "starSelectedColor"?: string;
         "starUnselectedColor"?: string;
     }
+    interface CwSwitch {
+        "ballColorSelected"?: string;
+        "ballColorUnselected"?: string;
+        "bgColorSelected"?: string;
+        "bgColorUnselected"?: string;
+        "borderColor"?: string;
+    }
     interface IntrinsicElements {
         "cw-carousel": CwCarousel;
         "cw-draggable": CwDraggable;
@@ -193,6 +214,7 @@ declare namespace LocalJSX {
         "cw-dropdown": CwDropdown;
         "cw-modal": CwModal;
         "cw-stars-rate": CwStarsRate;
+        "cw-switch": CwSwitch;
     }
 }
 export { LocalJSX as JSX };
@@ -205,6 +227,7 @@ declare module "@stencil/core" {
             "cw-dropdown": LocalJSX.CwDropdown & JSXBase.HTMLAttributes<HTMLCwDropdownElement>;
             "cw-modal": LocalJSX.CwModal & JSXBase.HTMLAttributes<HTMLCwModalElement>;
             "cw-stars-rate": LocalJSX.CwStarsRate & JSXBase.HTMLAttributes<HTMLCwStarsRateElement>;
+            "cw-switch": LocalJSX.CwSwitch & JSXBase.HTMLAttributes<HTMLCwSwitchElement>;
         }
     }
 }

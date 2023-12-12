@@ -1,0 +1,29 @@
+:host {
+  --ball-color: black;
+  --bg-color: white;
+  --border-color: rgba(0,0,0,0.2);
+  
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background-color:var(--bg-color);
+  width: 40px;
+  height: 24px;
+  border-radius:15px;
+}
+
+.ball {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background-color:var(--ball-color);
+  border-radius: 50%;
+  transition:all 0.3s ease;
+}
+
+.ball.selected {
+  left: 20px;
+}
