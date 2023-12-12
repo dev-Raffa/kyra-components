@@ -6,6 +6,13 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CwCard {
+        "bgColor": string;
+        "borderColor": string;
+        "borderRadius": string;
+        "height": string;
+        "width": string;
+    }
     interface CwCarousel {
         /**
           * if this value is true, a button prev element and a button next element will be shown in the sides of carousel
@@ -81,6 +88,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLCwCardElement extends Components.CwCard, HTMLStencilElement {
+    }
+    var HTMLCwCardElement: {
+        prototype: HTMLCwCardElement;
+        new (): HTMLCwCardElement;
+    };
     interface HTMLCwCarouselElement extends Components.CwCarousel, HTMLStencilElement {
     }
     var HTMLCwCarouselElement: {
@@ -124,6 +137,7 @@ declare global {
         new (): HTMLCwSwitchElement;
     };
     interface HTMLElementTagNameMap {
+        "cw-card": HTMLCwCardElement;
         "cw-carousel": HTMLCwCarouselElement;
         "cw-draggable": HTMLCwDraggableElement;
         "cw-draggable-board": HTMLCwDraggableBoardElement;
@@ -134,6 +148,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface CwCard {
+        "bgColor"?: string;
+        "borderColor"?: string;
+        "borderRadius"?: string;
+        "height": string;
+        "width": string;
+    }
     interface CwCarousel {
         /**
           * if this value is true, a button prev element and a button next element will be shown in the sides of carousel
@@ -208,6 +229,7 @@ declare namespace LocalJSX {
         "borderColor"?: string;
     }
     interface IntrinsicElements {
+        "cw-card": CwCard;
         "cw-carousel": CwCarousel;
         "cw-draggable": CwDraggable;
         "cw-draggable-board": CwDraggableBoard;
@@ -221,6 +243,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cw-card": LocalJSX.CwCard & JSXBase.HTMLAttributes<HTMLCwCardElement>;
             "cw-carousel": LocalJSX.CwCarousel & JSXBase.HTMLAttributes<HTMLCwCarouselElement>;
             "cw-draggable": LocalJSX.CwDraggable & JSXBase.HTMLAttributes<HTMLCwDraggableElement>;
             "cw-draggable-board": LocalJSX.CwDraggableBoard & JSXBase.HTMLAttributes<HTMLCwDraggableBoardElement>;
