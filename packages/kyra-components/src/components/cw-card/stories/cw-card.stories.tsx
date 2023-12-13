@@ -28,8 +28,8 @@ export const Example: StoryObj<cwCardArgs> ={
                 ${args.borderColor && `border-color= ${args.borderColor}`}
                 ${args.borderRadius && `border-radius= ${args.borderRadius}`}
             >
-                <figure>
-                    <img src="/images/carousel-image-1.png" alt="card example">
+                <figure style="margin: 0; padding: 0;" >
+                    <img style="width: 100%" src="/images/carousel-image-1.png" alt="card example">
                 </figure>
                 <p> electronic action-adventure game, released by the Sony Corporation in 2005... </p>
             </cw-card>

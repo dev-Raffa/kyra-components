@@ -12,7 +12,8 @@ export class CwCard {
   @Prop() bgColor: string;
   @Prop() borderColor: string;
   @Prop() borderRadius: string;
-  
+
+ 
   componentWillLoad(){
     this.width && this.el.style.setProperty('--width', this.width)
     this.height && this.el.style.setProperty('--height', this.height)
@@ -20,6 +21,7 @@ export class CwCard {
     this.borderColor && this.el.style.setProperty('--border-color', this.borderColor)
     this.borderRadius && this.el.style.setProperty('--border-radius', this.borderRadius)
   }
+
 
   render() {
     return (
