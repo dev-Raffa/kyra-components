@@ -6,3 +6,5 @@ replit.nix
 storybook-static/
 yarn.lock
 packages/react-project/
+.local/
+yarn-error.log
