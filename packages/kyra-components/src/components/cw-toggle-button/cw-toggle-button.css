@@ -1,0 +1,33 @@
+cw-toggle-button {
+  --width: fit-content;
+  --height: fit-content;
+  --bg-color: white;
+  --color: black;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 10%;
+
+  width: var(--width);
+  height: var(--height);
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+
+cw-toggle-button[variant="outline"] {
+  border: 1px solid var(--color);
+}
+
+cw-toggle-button[variant="icon"]{
+  border-radius: 0;
+  background-color: transparent;
+  width: fit-content;
+  height: fit-content;
+}
