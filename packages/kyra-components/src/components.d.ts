@@ -86,6 +86,16 @@ export namespace Components {
         "bgColorUnselected": string;
         "borderColor": string;
     }
+    interface CwToggleButton {
+        "height": string;
+        "initialValue": boolean;
+        "selectedBgColor": string;
+        "selectedColor": string;
+        "unselectedBgColor": string;
+        "unselectedColor": string;
+        "variant": 'default' | 'outline' | 'icon';
+        "width": string;
+    }
 }
 declare global {
     interface HTMLCwCardElement extends Components.CwCard, HTMLStencilElement {
@@ -136,6 +146,12 @@ declare global {
         prototype: HTMLCwSwitchElement;
         new (): HTMLCwSwitchElement;
     };
+    interface HTMLCwToggleButtonElement extends Components.CwToggleButton, HTMLStencilElement {
+    }
+    var HTMLCwToggleButtonElement: {
+        prototype: HTMLCwToggleButtonElement;
+        new (): HTMLCwToggleButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "cw-card": HTMLCwCardElement;
         "cw-carousel": HTMLCwCarouselElement;
@@ -145,6 +161,7 @@ declare global {
         "cw-modal": HTMLCwModalElement;
         "cw-stars-rate": HTMLCwStarsRateElement;
         "cw-switch": HTMLCwSwitchElement;
+        "cw-toggle-button": HTMLCwToggleButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -228,6 +245,16 @@ declare namespace LocalJSX {
         "bgColorUnselected"?: string;
         "borderColor"?: string;
     }
+    interface CwToggleButton {
+        "height": string;
+        "initialValue"?: boolean;
+        "selectedBgColor"?: string;
+        "selectedColor"?: string;
+        "unselectedBgColor"?: string;
+        "unselectedColor"?: string;
+        "variant"?: 'default' | 'outline' | 'icon';
+        "width": string;
+    }
     interface IntrinsicElements {
         "cw-card": CwCard;
         "cw-carousel": CwCarousel;
@@ -237,6 +264,7 @@ declare namespace LocalJSX {
         "cw-modal": CwModal;
         "cw-stars-rate": CwStarsRate;
         "cw-switch": CwSwitch;
+        "cw-toggle-button": CwToggleButton;
     }
 }
 export { LocalJSX as JSX };
@@ -251,6 +279,7 @@ declare module "@stencil/core" {
             "cw-modal": LocalJSX.CwModal & JSXBase.HTMLAttributes<HTMLCwModalElement>;
             "cw-stars-rate": LocalJSX.CwStarsRate & JSXBase.HTMLAttributes<HTMLCwStarsRateElement>;
             "cw-switch": LocalJSX.CwSwitch & JSXBase.HTMLAttributes<HTMLCwSwitchElement>;
+            "cw-toggle-button": LocalJSX.CwToggleButton & JSXBase.HTMLAttributes<HTMLCwToggleButtonElement>;
         }
     }
 }

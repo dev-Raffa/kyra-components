@@ -15,3 +15,4 @@ export const CwDropdown = /*@__PURE__*/createReactComponent<JSX.CwDropdown, HTML
 export const CwModal = /*@__PURE__*/createReactComponent<JSX.CwModal, HTMLCwModalElement>('cw-modal');
 export const CwStarsRate = /*@__PURE__*/createReactComponent<JSX.CwStarsRate, HTMLCwStarsRateElement>('cw-stars-rate');
 export const CwSwitch = /*@__PURE__*/createReactComponent<JSX.CwSwitch, HTMLCwSwitchElement>('cw-switch');
+export const CwToggleButton = /*@__PURE__*/createReactComponent<JSX.CwToggleButton, HTMLCwToggleButtonElement>('cw-toggle-button');
