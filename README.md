@@ -1,7 +1,7 @@
-##A Kyra Components 
+# A Kyra Components 
 fornece uma variedade de componentes que podem ser utilizados em qualquer estrutura front-end, seja em aplicações React, Angular, Vue ou em aplicações HTML.
 
----
+
 
 Você pode utiliar nossos componentes instalando a nossa lib em seu projeto:
 
