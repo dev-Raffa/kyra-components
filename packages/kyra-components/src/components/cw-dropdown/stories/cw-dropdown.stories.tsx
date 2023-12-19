@@ -44,7 +44,7 @@ export const Grouped: StoryObj = {
     return`
       <div>
         <h2>${args.title}</h2>
-        <section style="display: flex; gap:24px ;">
+        <section style="display: flex; gap: 8px; flex-direction: column;">
           <cw-dropdown item-title="Dropdown A">
             <ul>
               <li>Item 1</li>
