@@ -20,13 +20,14 @@ cw-stars-rate > * {
   box-sizing: border-box;
 }
 
+
 cw-stars-rate > .star {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: var(--star-unselected-color);
-  height: var(--size);
-  width: var(--size);
+  background-color: var(--bg-color);
+  font-size: var(--size);
   transition:all 0.3s ease;
 }
 

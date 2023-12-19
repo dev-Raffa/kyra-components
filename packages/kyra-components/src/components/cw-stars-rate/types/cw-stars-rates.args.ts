@@ -1,5 +1,5 @@
 export interface cwStarsRateArgs {
-  bColor?: string;
+  bgColor?: string;
   maxValue?: number;
   defaultValue?: number;
   starSelectedColor?: string;

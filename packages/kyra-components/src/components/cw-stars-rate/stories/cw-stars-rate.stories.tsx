@@ -9,7 +9,7 @@ export default Component;
 
 export const Example:StoryObj<cwStarsRateArgs> = {
   argTypes: {
-    bColor: { control: 'color' },
+    bgColor: { control: 'color' },
     maxValue: { control: 'number' },
     defaultValue: { control: 'number' },
     starSelectedColor: { control: 'color' },
@@ -26,7 +26,7 @@ export const Example:StoryObj<cwStarsRateArgs> = {
   render: (args) => { 
     return `
       <cw-stars-rate
-        ${args.bColor && `bg-color=${args.bColor}`}
+        ${args.bgColor && `bg-color=${args.bgColor}`}
         ${args.maxValue && `max-value=${args.maxValue}`}
         ${args.defaultValue && `default-value=${args.defaultValue}`}
         ${args.starSelectedColor && `star-selected-color=${args.starSelectedColor}`}
