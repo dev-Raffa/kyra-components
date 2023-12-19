@@ -16,7 +16,9 @@ export const Example: StoryObj<cwSwitchArgs> = {
     borderColor: {control: 'color'},
   },
   args: {
-    
+    ballColorUnselected:"rgba(255, 255, 255, 0.2)",
+    bgColorSelected:"#d7d9d2",
+    bgColorUnselected: "#a2a4ae"
   },
   render: (args) => {
     return `
