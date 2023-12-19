@@ -17,7 +17,7 @@ export class CwToggleButton {
 
   @State() isSelected: boolean;
 
-  componentWilLoad(){
+  componentWillLoad(){
     this.initialValue ? this.isSelected = this.initialValue : this.isSelected = false 
     this.width && this.el.style.setProperty('--width', this.width)
     this.height && this.el.style.setProperty('--height', this.height)
