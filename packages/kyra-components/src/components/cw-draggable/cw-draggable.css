@@ -16,6 +16,7 @@ cw-draggable {
   padding: 4px;
   gap: 12px;
   border: var(--border);
+  border-radius: 5px;
   transition: var(--transition);
   box-shadow: 0px 0px 1px 0px;
 }
@@ -35,6 +36,7 @@ cw-draggable > header {
   width: calc(100% - 16px);
   height: 35px;
   background-color:var(--bg-color);
+  border-bottom: 1px solid rgba(255,255,255 0.2);
 }
 
 cw-draggable > .board {
