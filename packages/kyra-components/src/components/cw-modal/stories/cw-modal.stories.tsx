@@ -21,9 +21,9 @@ export const Example: StoryObj<CwModalArgs> = {
     modalTitle: "Example",
     width: "250px",
     alignment: "center",
-    bgColor: "",
-    borderColor: "",
-    fontColor: "",
+    bgColor: "#ffffff",
+    borderColor: "#d3d3d3",
+    fontColor: "#060606",
   },
   render: (args) => {
     return `
