@@ -19,7 +19,7 @@ export const Example: Story = {
     height: "450px",
     autoplay: false,
     arrows: true,
-    colors: "green",
+    colors: "#c8cd9c",
     index: true,
     time: 5000,
   },
