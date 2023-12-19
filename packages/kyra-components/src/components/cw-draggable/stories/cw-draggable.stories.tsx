@@ -36,10 +36,10 @@ export const BoardSingle: StoryObj<draggableArgs> = {
     itemTitle: "Board",
     width: "fit-content",
     height:'fit-content',
-    bgColor:'gray',
+    bgColor:'#efefef',
     itemsDirection: 'column',
     gap:"12px",
-    border: "1px solid black",
+    border: "1px solid #676946b5",
     transition: "all 0.5s ease"
   }
 }
