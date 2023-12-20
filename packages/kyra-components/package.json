@@ -1,7 +1,7 @@
 {
   "name": "kyra-components",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "version": "0.0.2",
+  "description": "A web components lib for html, react, angular & vue apps.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.js",
@@ -12,7 +12,7 @@
   "unpkg": "dist/kyra-components/kyra-components.esm.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "git+https://github.com/dev-Raffa/kyra-components"
   },
   "files": [
     "dist/",
@@ -55,9 +55,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ionic-team/stencil-component-starter/issues"
+    "url": "https://github.com/dev-Raffa/kyra-components/issues"
   },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/ionic-team/stencil-component-starter#readme",
+  "readme": "https://github.com/dev-Raffa/kyra-components#readme",
+  "homepage": "https://github.com/dev-Raffa/kyra-components#readme",
   "_id": "kyra-components@0.0.1"
 }
