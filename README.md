@@ -38,4 +38,4 @@ E, por fim, importe o componente no arquivo desejado:
     </CwCard>
 ```
 
-######Acesse nosso [storybook](https://6571a24150c8ea87b816c198-lwdutxlwuz.chromatic.com/?path=/story/card--example) e explore nossos componentes:/
+##### Acesse nosso [storybook](https://6571a24150c8ea87b816c198-lwdutxlwuz.chromatic.com/?path=/story/card--example) e explore nossos componentes.
