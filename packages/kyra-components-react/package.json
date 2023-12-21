@@ -1,5 +1,6 @@
-{ "name": "kyra-components-react",
-  "version":"0.0.1",
+{
+  "name": "kyra-components-react",
+  "version": "0.0.2",
   "description": "a dedicated version of kyra-components lib for react apps",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -11,7 +12,7 @@
   "scripts": {
     "test": "node ./__tests__/react-library.test.js",
     "build": "npm run tsc",
-     "tsc": "tsc -p . --outDir ./dist"
+    "tsc": "tsc -p . --outDir ./dist"
   },
   "files": [
     "dist"
@@ -22,7 +23,7 @@
   "dependencies": {
     "kyra-components": "*"
   },
-  "license":"MIT",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dev-Raffa/kyra-components/issues"
   },
