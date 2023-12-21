@@ -8,3 +8,5 @@ yarn.lock
 packages/react-project/
 .local/
 yarn-error.log
+
+**/*/dist
